@@ -6,6 +6,12 @@ ruby '2.2.1'
 gem 'sinatra'
 gem 'sinatra-contrib'
 
+# PostgreSQL driver
+gem 'pg'
+
+gem 'activesupport'
+gem 'activerecord'
+
 # Use Thin for our web server
 gem 'thin'
 
