@@ -8,7 +8,7 @@ module Github
     end
 
     def user_agent
-      "My-Hall-of-Fame-App"
+      "Repo-Ranker"
     end
 
     def token

@@ -25,6 +25,7 @@ GEM
       xpath (~> 2.0)
     daemons (1.2.3)
     diff-lcs (1.2.5)
+    dotenv (2.0.2)
     eventmachine (1.0.8)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -95,6 +96,7 @@ DEPENDENCIES
   activerecord
   activesupport
   capybara
+  dotenv
   factory_girl
   faker
   httparty
