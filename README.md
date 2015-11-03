@@ -1,30 +1,67 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+#Repo-Ranker
 
-### Purpose
-The Sinatra Skeleton:
+Repo-Ranker is a simple app built to consume the [Github API](https://developer.github.com/v3/). Just enter the name of a particular Github repository and the name of the owner it belongs to and Repo-Ranker shows you contributors sorted from highest number of contributions to lowest.
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+##Deployment
 
-### Quickstart
+Repo-Ranker is deployed to Heroku. Visit the app [here](https://github-repo-ranker.herokuapp.com/)
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+##Technology
 
-As needed, create models & migrations with the `rake` tasks:
+Repo-Ranker was created using [Sinatra](http://www.sinatrarb.com/), a lightweight framework for creating web applications in Ruby. It utilizes the [HTTParty Gem](https://github.com/jnunemaker/httparty) (see code sample below) to make requests to the [Github API](https://developer.github.com/v3/).
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+Dynamic content is added using [Jquery](https://jquery.com/) and [AJAX](http://api.jquery.com/jquery.ajax/). CSS is courtesy of [Pure](http://purecss.io/)
 
-### Contributing
+##Explore
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+If you would like to explore the code on your local machine, you will need to obtain your own token to access the Github API.  [Here](https://github.com/blog/1509-personal-api-tokens) is one place you can do that. Once you obtain the token, you will need to store it in a secure place where the app can access it. One option for doing that is described [here](https://github.com/bkeepers/dotenv).  Once you have an access token do the following:
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+Clone the repo from your command line
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+`https://github.com/alookatommorow/Repo-Ranker.git`
+
+Navigate to the Repo-Ranker folder
+
+Bundle install
+
+`bundle install`
+
+Use shotgun to start the server
+
+`bundle exec shotgun`
+
+Open your browser and navigate to localhost:9393
+
+##Code Sample
+
+Here is the code enabling requests to the Github API:
+
+`module Github
+  class Client
+    include HTTParty
+    base_uri "https://api.github.com"
+
+    def contributors(org_name="coinbase", repo_name="omniauth-coinbase")
+      self.class.get("/repos/#{org_name}/#{repo_name}/contributors", headers: headers, query: { access_token: token})
+    end
+
+    def user_agent
+      "Repo-Ranker"
+    end
+
+    def token
+      ENV['GITHUB_TOKEN']
+    end
+
+
+    def headers
+      {"User-Agent" => user_agent} #Github requires a user-agent header to make requests
+    end
+
+  end
+
+end`
+
+Then in the controller:
+
+`@contributors = Github::Client.new.contributors(@org_name, @repo_name)`
