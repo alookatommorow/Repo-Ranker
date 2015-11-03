@@ -36,7 +36,8 @@ Open your browser and navigate to localhost:9393
 
 Here is the code enabling requests to the Github API:
 
-`module Github
+`
+module Github
   class Client
     include HTTParty
     base_uri "https://api.github.com"
@@ -60,7 +61,8 @@ Here is the code enabling requests to the Github API:
 
   end
 
-end`
+end
+`
 
 Then in the controller:
 
