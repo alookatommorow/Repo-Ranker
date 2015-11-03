@@ -10,7 +10,7 @@ Repo-Ranker is deployed to Heroku. Visit the app [here](https://github-repo-rank
 
 Repo-Ranker was created using [Sinatra](http://www.sinatrarb.com/), a lightweight framework for creating web applications in Ruby. It utilizes the [HTTParty Gem](https://github.com/jnunemaker/httparty) (see code sample below) to make requests to the [Github API](https://developer.github.com/v3/).
 
-Dynamic content is added using [Jquery](https://jquery.com/) and [AJAX](http://api.jquery.com/jquery.ajax/). CSS is courtesy of [Pure](http://purecss.io/)
+Dynamic content is added using [Jquery](https://jquery.com/) and [AJAX](http://api.jquery.com/jquery.ajax/). CSS is courtesy of [Pure](http://purecss.io/).
 
 ##Explore
 
@@ -20,7 +20,7 @@ Clone the repo from your command line:
 
 `git clone https://github.com/alookatommorow/Repo-Ranker.git`
 
-Navigate to the Repo-Ranker folder
+Navigate to the Repo-Ranker folder.
 
 Bundle install:
 
@@ -59,7 +59,6 @@ module Github
     end
 
   end
-
 end
 ```
 
