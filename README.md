@@ -34,7 +34,7 @@ Open your browser and navigate to localhost:9393
 
 ##Code Sample
 
-Here is the code enabling requests to the Github API:
+Here is the code enabling requests to the Github API using the HTTParty gem:
 
 ```ruby
 module Github
@@ -54,7 +54,6 @@ module Github
       ENV['GITHUB_TOKEN']
     end
 
-
     def headers
       {"User-Agent" => user_agent} #Github requires a user-agent header to make requests
     end
@@ -66,4 +65,6 @@ end
 
 Then in the controller:
 
-`@contributors = Github::Client.new.contributors(@org_name, @repo_name)`
+```ruby
+@contributors = Github::Client.new.contributors(@org_name, @repo_name)
+```
