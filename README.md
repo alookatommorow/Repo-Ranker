@@ -1,6 +1,6 @@
 #Repo-Ranker
 
-Repo-Ranker is a simple app built to consume the [Github API](https://developer.github.com/v3/). Just enter the name of a particular Github repository and the name of the owner it belongs to and Repo-Ranker shows you contributors sorted from highest number of contributions to lowest.
+Repo-Ranker is a simple app built to consume the [Github API](https://developer.github.com/v3/). Just enter the name of a particular Github repository and the repository's owner and Repo-Ranker displays the repository's contributors sorted from greatest number of contributions to fewest.
 
 ##Deployment
 
@@ -16,17 +16,17 @@ Dynamic content is added using [Jquery](https://jquery.com/) and [AJAX](http://a
 
 If you would like to explore the code on your local machine, you will need to obtain your own token to access the Github API.  [Here](https://github.com/blog/1509-personal-api-tokens) is one place you can do that. Once you obtain the token, you will need to store it in a secure place where the app can access it. One option for doing that is described [here](https://github.com/bkeepers/dotenv).  Once you have an access token do the following:
 
-Clone the repo from your command line
+Clone the repo from your command line:
 
-`https://github.com/alookatommorow/Repo-Ranker.git`
+`git clone https://github.com/alookatommorow/Repo-Ranker.git`
 
 Navigate to the Repo-Ranker folder
 
-Bundle install
+Bundle install:
 
 `bundle install`
 
-Use shotgun to start the server
+Use Shotgun to start the server:
 
 `bundle exec shotgun`
 
