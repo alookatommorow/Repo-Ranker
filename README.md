@@ -36,7 +36,7 @@ Open your browser and navigate to localhost:9393
 
 Here is the code enabling requests to the Github API:
 
-`
+```ruby
 module Github
   class Client
     include HTTParty
@@ -62,7 +62,7 @@ module Github
   end
 
 end
-`
+```
 
 Then in the controller:
 
