@@ -1,10 +1,9 @@
-
 <div class="content">
   <h2 class="content-head is-center">Enter repository details</h2>
 
   <div class="pure-g">
     <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-      <form class="pure-form pure-form-stacked" action='/dashboard' method='post'>
+      <form class="pure-form pure-form-stacked repo-form" action='/dashboard' method='post'>
         <fieldset>
           <label for="organization">Organization</label>
           <input type="text" name="organization" placeholder="ex. Coinbase">
@@ -14,40 +13,41 @@
         </fieldset>
       </form>
     </div>
+    <div class="results-container">
+      <% if @contributors.parsed_response.is_a?(Hash) %>
+        <div class="l-box-lrg pure-u-1 pure-u-md-3-5 error-box">
+          <h3 class="content-head is-center">Invalid Organization or Repo</h3>
+        </div>
 
-    <% if @contributors.parsed_response.is_a?(Hash) %>
-      <div class="l-box-lrg pure-u-1 pure-u-md-3-5 error-box">
-        <h3 class="content-head is-center">Invalid Organization or Repo</h3>
-      </div>
+      <% else %>
 
-    <% else %>
+        <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+          <h3 class="content-head is-center"> <%= @org_name.capitalize %></h3>
+          <h3 class="content-head is-center"> <%= @repo_name %></h3>
 
-      <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-        <h3 class="content-head is-center"> <%= @org_name.capitalize %></h3>
-        <h3 class="content-head is-center"> <%= @repo_name %></h3>
-
-        <table class="pure-table center">
-          <thead>
-            <tr>
-              <th>Ranking</th>
-              <th>Gravatar</th>
-              <th>Username</th>
-              <th># Commits</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @contributors.each_with_index do |contributor, index| %>
-            <tr>
-              <td><%= index + 1 %></td>
-              <td><img class="round-photo" src="<%= contributor['avatar_url']%>"></td>
-              <td><a href="<%= contributor['html_url'] %>"><%= contributor["login"] %></a></td>
-              <td><%= contributor["contributions"] %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
+          <table class="pure-table center">
+            <thead>
+              <tr>
+                <th>Ranking</th>
+                <th>Gravatar</th>
+                <th>Username</th>
+                <th># Commits</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @contributors.each_with_index do |contributor, index| %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><img class="round-photo" src="<%= contributor['avatar_url']%>"></td>
+                <td><a href="<%= contributor['html_url'] %>"><%= contributor["login"] %></a></td>
+                <td><%= contributor["contributions"] %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    </div>
 
   </div>
 

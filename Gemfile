@@ -19,7 +19,6 @@ gem 'httparty'
 
 gem 'dotenv'
 
-
 gem 'rake'
 
 gem 'shotgun'
