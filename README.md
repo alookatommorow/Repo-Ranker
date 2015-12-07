@@ -6,7 +6,7 @@ Repo-Ranker is a simple app built to consume the [Github API](https://developer.
 
 Repo-Ranker is deployed to Heroku. Visit the app [here](https://github-repo-ranker.herokuapp.com/)
 
-![Screenshot](https://github.com/alookatommorow/Repo-Ranker/blob/master/public/reporanker.png)
+![Screenshot](https://github.com/alookatommorow/Repo-Ranker/blob/master/public/reporanker2.png)
 
 ##Technology
 
