@@ -6,6 +6,8 @@ Repo-Ranker is a simple app built to consume the [Github API](https://developer.
 
 Repo-Ranker is deployed to Heroku. Visit the app [here](https://github-repo-ranker.herokuapp.com/)
 
+![Screenshot](https://github.com/alookatommorow/Repo-Ranker/blob/master/public/reporanker.png)
+
 ##Technology
 
 Repo-Ranker was created using [Sinatra](http://www.sinatrarb.com/), a lightweight framework for creating web applications in Ruby. It utilizes the [HTTParty Gem](https://github.com/jnunemaker/httparty) (see code sample below) to make requests to the [Github API](https://developer.github.com/v3/).
